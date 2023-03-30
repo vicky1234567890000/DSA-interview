@@ -1,0 +1,61 @@
+package hashmap_Level2;
+
+import java.util.HashMap;
+
+public class LongestSubstringWithAtmostKUniqueCharacters {
+
+    public static void main(String[] args){
+
+        String str = "ddacbbaccdedacebb";
+        HashMap<Character,Integer> fmap = new HashMap<>();
+        int ans = 0;
+        int i = -1;
+        int j = -1;
+        int k = 3;
+
+        while(true) {
+
+            boolean f1 = false;
+            boolean f2 = false;
+            while (i < str.length() - 1) {
+                f1 = true;
+                i++;
+                char ch = str.charAt(i);
+                fmap.put(ch, fmap.getOrDefault(ch, 0) + 1);
+
+                if (fmap.size() <= k) {
+                    int len = i - j;
+                    if (len > ans) {
+                        ans = len;
+                    }
+                } else {
+                    break;
+                }
+
+            }
+
+            while (j < i) {
+                f2 = true;
+                j++;
+                char ch = str.charAt(j);
+                if (fmap.get(ch) == 1) {
+                    fmap.remove(ch);
+                } else {
+                    fmap.put(ch, fmap.get(ch) - 1);
+                }
+
+                if (fmap.size() > k) continue;
+
+                else {
+                    int len = i - j;
+                    if (len > ans) {
+                        ans = len;
+                    }
+                    break;
+                }
+            }
+            if(!f1 && !f2) break;
+        }
+        System.out.println(ans);
+    }
+}
