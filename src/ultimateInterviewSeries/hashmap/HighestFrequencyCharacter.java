@@ -1,3 +1,4 @@
+
 package ultimateInterviewSeries.hashmap;
 
 import java.util.HashMap;
@@ -24,4 +25,5 @@ public class HighestFrequencyCharacter {
         }
         System.out.println("Max Freq Character is : "+ maxFreqChar);
     }
+
 }

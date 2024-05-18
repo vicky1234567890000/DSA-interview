@@ -1,3 +1,4 @@
+
 package twopointer;
 
 import java.util.Arrays;
@@ -54,4 +55,5 @@ public class ThreeEqualParts {
         return new int[]{posOfOneInPart1-1, posOfOneInPart2};
 
     }
+
 }

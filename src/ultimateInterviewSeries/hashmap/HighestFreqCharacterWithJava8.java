@@ -1,3 +1,4 @@
+
 package ultimateInterviewSeries.hashmap;
 
 import java.util.Collections;
@@ -22,4 +23,5 @@ public class HighestFreqCharacterWithJava8 {
                 .collect(Collectors.toList()).get(0);
         System.out.println("Highest Freq character is : "+hfc);
     }
+
 }
