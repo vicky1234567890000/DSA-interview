@@ -1,7 +1,7 @@
-package demo;
+package stack;
 
-public class Test1 {
+public class Stack1 {
     public static void main(String[] args) {
-        
+
     }
 }
