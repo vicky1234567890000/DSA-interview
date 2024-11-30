@@ -1,35 +1,43 @@
+
 package twopointer;
 
 import java.util.Arrays;
 
+// https://www.geeksforgeeks.org/problems/3-sum-closest/1
 public class ThreeSumClosest {
-    public static void main(String[] args){
-        int[] arr = {-1,2,1,-4};
+    public static void main(String[] args) {
+        int[] nums = {0,0,0};
         int target = 1;
+        int ans = threeSumClosest(nums, target);
+        System.out.println(ans);
 
-        Arrays.sort(arr);
-        int closestSum = arr[0] + arr[1] + arr[arr.length-1];
+    }
 
-        for(int i=0;i<arr.length-2;i++){
-            int start = i+1;
-            int end = arr.length-1;
+    private static int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int closestSum = nums[0] + nums[1] + nums[nums.length-1];
+        for(int i=0; i<nums.length-2; i++){
 
-            while (start < end) {
+            if(i !=0 && nums[i] == nums[i-1]){
+                continue;
+            }
+            int l = i+1;
+            int r = nums.length - 1;
 
-                int currSum = arr[start]+arr[end]+arr[i];
-                if(currSum < target){
-                    start++;
-                }else if(currSum > target){
-                    end--;
+            while(l < r){
+                int currSum = nums[i] + nums[l] + nums[r];
+                if(currSum > target){
+                    r--;
+                } else {
+                    l++;
                 }
 
-                if(Math.abs(currSum-target) < Math.abs(closestSum-target)){
+                if(Math.abs(currSum - target) < Math.abs(closestSum - target)){
                     closestSum = currSum;
                 }
             }
         }
-
-        System.out.println(closestSum);
-
+        return closestSum;
     }
+
 }
