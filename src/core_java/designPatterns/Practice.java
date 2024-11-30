@@ -5,5 +5,6 @@ public class Practice {
         System.out.println("practice java");
         System.out.println("practice devops");
         System.out.println("practice database");
+        System.out.println("practice ML");
     }
 }
